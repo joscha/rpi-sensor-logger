@@ -1,0 +1,14 @@
+{
+  "name": "basic-resin-node-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "bash deps.sh",
+    "start": "node hello.js"
+  },
+  "author": "Lorenzo Stoakes <lstoakes@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
