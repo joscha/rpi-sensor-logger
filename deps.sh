@@ -4,4 +4,4 @@ set -o errexit
 
 apt-get -q update
 apt-get install -y cowsay
-cowsay "install Raspbian dependencies using deps.sh"
+cowsay "Install dependencies using a script like this!"
