@@ -27,7 +27,7 @@
 
   var sensor = {
     initialize: function() {
-      return sensorLib.initialize(sensorType, sensorPin);
+      return sensorLib.initialize(+sensorType, +sensorPin);
     },
     read: function() {
       var readout = sensorLib.read();
