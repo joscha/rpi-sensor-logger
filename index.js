@@ -42,7 +42,7 @@
           .push(path, {
               temperature: temperature,
               humidity: humidity,
-              timestamp: Firebase.ServerValue.TIMESTAMP
+              timestamp: Date.now()
           })
           .then(function() {
               console.log('Written data to firebase');
