@@ -37,7 +37,7 @@
       console.log(moment().format(), 'Temperature: ' + temperature + 'C, ' +
       'humidity: ' + humidity + '%');
 
-      var path = '/' + [deviceName, 'readings'].join('/');
+      var path = '/' + [resinDeviceUuid, 'readings'].join('/');
       firebase
           .push(path, {
               temperature: temperature,

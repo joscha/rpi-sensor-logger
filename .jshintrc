@@ -1,0 +1,16 @@
+{
+  "camelcase"     : false,
+  "curly"         : true,
+  "eqeqeq"        : true,
+  "forin"         : true,
+  "freeze"        : true,
+  "immed"         : false,
+  "indent"        : 2,
+  "noarg"         : true,
+  "undef"         : true,
+  "unused"        : true,
+  "strict"        : true,
+
+  "node"          : true,
+  "globals"       : {}
+}
