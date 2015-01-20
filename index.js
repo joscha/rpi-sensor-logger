@@ -1,6 +1,12 @@
 (function() {
   'use strict';
 
+  /**
+  * @var {Number} the interval to gather the sensor output in seconds.
+  * Defaults to 5 minutes (300).
+  */
+  var interval = process.env.SENSOR_INTERVAL || 5*60;
+
   var sensorLib = require('node-dht-sensor');
 
   var sensor = {
@@ -13,7 +19,7 @@
       'humidity: ' + readout.humidity.toFixed(2) + '%');
       setTimeout(function() {
         sensor.read();
-      }, 2000);
+      }, interval * 1000);
     }
   };
 
