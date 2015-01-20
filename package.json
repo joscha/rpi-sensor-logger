@@ -4,6 +4,7 @@
   "description": "A resin.io based node project to read sensor data and push it to firebase",
   "main": "index.js",
   "scripts": {
+    "preinstall": "./deps.sh",
     "start": "node index.js"
   },
   "author": "Joscha Feth <joscha@feth.com>",
