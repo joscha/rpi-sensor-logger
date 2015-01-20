@@ -3,7 +3,7 @@ set -o errexit
 
 # install BCM2385 library
 bcm2385_version=1.38
-rm bcm2835-$bcm2385_version.tar.gz
+rm -f bcm2835-$bcm2385_version.tar.gz
 wget http://www.airspayce.com/mikem/bcm2835/bcm2835-$bcm2385_version.tar.gz
 tar zxvf bcm2835-$bcm2385_version.tar.gz
 cd bcm2835-$bcm2385_version
