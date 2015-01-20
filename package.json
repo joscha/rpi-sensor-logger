@@ -1,14 +1,15 @@
 {
-  "name": "basic-resin-node-project",
-  "version": "1.0.0",
-  "description": "",
+  "name": "rpi-sensor-logger",
+  "version": "0.0.1",
+  "description": "A resin.io based node project to read sensor data and push it to firebase",
   "main": "index.js",
   "scripts": {
-    "preinstall": "bash deps.sh",
-    "start": "node hello.js"
+    "preinstall": "./deps.sh",
+    "start": "node index.js"
   },
-  "author": "Lorenzo Stoakes <lstoakes@gmail.com>",
-  "license": "ISC",
+  "author": "Joscha Feth <joscha@feth.com>",
+  "license": "MIT",
   "dependencies": {
+    "node-dht-sensor": "0.0.6"
   }
 }
