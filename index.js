@@ -31,24 +31,25 @@
     },
     read: function() {
       var data = sensorLib.read();
-      var temperature = data.temperature.toFixed(2);
-      var humidity = data.humidity.toFixed(2);
+      var temperature = data.temperature;
+      var humidity = data.humidity;
 
       if (temperature !== 0 || humidity !== 0) {
-          var m = moment();
+          var timestamp = Date.now();
+          var m = moment(timestamp).utc();
 
           console.log(
-              m.format() + ':\n',
-              '\tTemperature: ' + temperature + '°C\n',
-              '\tHumidity: ' + humidity + '%'
+              m.format() + ':',
+              '\tTemperature: ' + temperature.toFixed(2) + ' °C',
+              '\tHumidity: ' + humidity.toFixed(2) + '%'
           );
 
           var path = ['readings', resinDeviceUuid, m.format('YYYY/MM/DD/HH/mm/ss')].join('/');
           firebase
-              .push(path, {
+              .set(path, {
                   temperature: temperature,
                   humidity: humidity,
-                  timestamp: Date.now()
+                  timestamp: timestamp
               })
               .then(function() {
                   console.log('Written to firebase');
