@@ -31,8 +31,8 @@
     },
     read: function() {
       var data = sensorLib.read();
-      var temperature = data.temperature;
-      var humidity = data.humidity;
+      var temperature = data.temperature.toFixed(2);
+      var humidity = data.humidity.toFixed(2);
 
       if (temperature !== 0 || humidity !== 0) {
           var timestamp = Date.now();
@@ -40,15 +40,15 @@
 
           console.log(
               m.format() + ':',
-              '\tTemperature: ' + temperature.toFixed(2) + ' °C',
-              '\tHumidity: ' + humidity.toFixed(2) + '%'
+              '\tTemperature: ' + temperature + ' °C',
+              '\tHumidity: ' + humidity + '%'
           );
 
           var path = ['readings', resinDeviceUuid, m.format('YYYY/MM/DD/HH/mm/ss')].join('/');
           firebase
               .set(path, {
-                  temperature: temperature,
-                  humidity: humidity,
+                  temperature: +temperature,
+                  humidity: +humidity,
                   timestamp: timestamp
               })
               .then(function() {
