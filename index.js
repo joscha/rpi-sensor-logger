@@ -64,6 +64,7 @@
 
   if (sensor.initialize()) {
     sensor.read();
+    console.log('Started...');
   } else {
     console.error('Failed to initialize sensor');
   }
