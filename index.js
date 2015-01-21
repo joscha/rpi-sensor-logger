@@ -27,33 +27,37 @@
 
   var sensor = {
     initialize: function() {
-      return sensorLib.initialize(+sensorType, +sensorPin);
+      return sensorLib.initialize(parseInt(sensorType, 10), parseInt(sensorPin, 10));
     },
     read: function() {
-      var readout = sensorLib.read();
-      var temperature = readout.temperature.toFixed(2);
-      var humidity = readout.humidity.toFixed(2);
+      var data = sensorLib.read();
+      var temperature = data.temperature.toFixed(2);
+      var humidity = data.humidity.toFixed(2);
 
-      console.log(moment().format(), 'Temperature: ' + temperature + 'C, ' +
-      'humidity: ' + humidity + '%');
+      if (temperature !== 0 || humidity !== 0) {
+          var m = moment();
 
-      var path = '/' + [resinDeviceUuid, 'readings'].join('/');
-      firebase
-          .push(path, {
-              temperature: temperature,
-              humidity: humidity,
-              timestamp: Date.now()
-          })
-          .then(function() {
-              console.log('Written data to firebase');
-          })
-          .fail(function(err) {
-              console.error(err);
-          });
+          console.log(
+              m.format() + ':\n',
+              '\tTemperature: ' + temperature + '°C\n',
+              '\tHumidity: ' + humidity + '%'
+          );
 
-      setTimeout(function() {
-        sensor.read();
-      }, interval * 1000);
+          var path = ['readings', resinDeviceUuid, m.format('YYYY/MM/DD/HH/mm/ss')].join('/');
+          firebase
+              .push(path, {
+                  temperature: temperature,
+                  humidity: humidity,
+                  timestamp: Date.now()
+              })
+              .then(function() {
+                  console.log('Written to firebase');
+              })
+              .fail(function(err) {
+                  console.error(err);
+              });
+      }
+      setTimeout(sensor.read, interval * 1000);
     }
   };
 
