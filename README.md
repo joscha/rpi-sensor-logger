@@ -1,5 +1,7 @@
 # RPi sensor logger
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/joscha/rpi-sensor-logger.svg)](https://greenkeeper.io/)
+
 This [resin.io](http://resin.io) based Raspberry pi node application reads temperature and humidity information from a sensor (DHT11/22 or AM2302) attached to the Raspberry pi and pushes the data to [firebase](http://www.firebase.com) in a given interval.
 
 Borrows from [resin.io/basic-resin-node-project](https://github.com/resin-io/basic-resin-node-project) and [shaunmulligan/firebaseDTL](https://github.com/shaunmulligan/firebaseDTL).
