@@ -10,8 +10,8 @@
   "author": "Joscha Feth <joscha@feth.com>",
   "license": "MIT",
   "dependencies": {
-    "firebase-client": "0.1.0",
-    "moment": "2.9.0",
-    "node-dht-sensor": "0.0.6"
+    "firebase-client": "0.1.1",
+    "moment": "2.17.1",
+    "node-dht-sensor": "0.0.32"
   }
 }
